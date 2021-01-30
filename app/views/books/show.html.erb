@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-3">
+      <h9 style="border-bottom: 1px solid silver; margin-bottom: 10px;">Genre</h9>
+      <div class="row">
+        <% @parents.each do |parent| %>
+          <div class="row" style="margin-left: 10px; padding-bottom: 5px;">
+            <%= link_to genre_show_path(parent.id) do %>
+            <h3><%= parent.name %> >></h3>
+            <% end %>
+          </div>
+            <% parent.children.each do |child| %>
+              <div class="row" style="margin-left: 10px; padding-bottom: 5px; padding-left: 50px;">
+                <%= link_to genre_show_path(child.id) do %>
+                <%= child.name %>
+                <% end %>
+              </div>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-xs-9">
+      <div class="font_z"> book </div>
+      <div class="row">
+      	<div class="col-xs-3">
+          <%= attachment_image_tag @book, :image, id: "preview", size: '200x200', fallback: "no_image.jpg" %>
+        </div>
+
+
+
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="manga">
+            <h3>name</h3>
+            <%= @book.name %><br>
+
+            <div id="star-rate-<%= @book.id %>"></div>
+                <script>
+                $('#star-rate-<%= @book.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= @book.posts.average(:rate).to_f.round(1) %>
+                  });
+                </script>
+
+            <h3>description</h3>
+            <%= render_with_hashtags(@book.description) %>
+            <h3>genre</h3>
+            <%= @book.genre.name %>
+　　　　　　　<% if user_signed_in? %>
+              <% if @book.favorited_by?(current_user) %>
+                <%= link_to book_favorites_path(@book), method: :delete do %>
+                <i class="glyphicon glyphicon-heart"style="color: red;"></i>
+                <%= @book.favorites.count %>
+                <% end %>
+                </li>
+                <% else %>
+                  <%= link_to book_favorites_path(@book), method: :post do %>
+                <i class="glyphicon glyphicon-heart"></i>
+                 <%= @book.favorites.count %>
+                <% end %>
+              <% end %>
+            <% end %>
+            <% if user_signed_in? %>
+             <%= link_to "レビューを書く", new_book_post_path(@book) %>
+             <% end %>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-xs-9">
+          <h3> rebyu </h3>
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr>
+                <th><h3>user_name</h3></th>
+                <th></th>
+                <th><h3>rate</h3></th>
+                <th><h3>tile</h3></th>
+                <th><h3>body</h3></th>
+                <th colspan="3"></th>
+                </tr>
+            </thead>
+
+            <% @posts.each do |post| %>
+              <tbody>
+              　  <tr>
+                    <td>
+                    <%= link_to user_path(post.user.id) do %>
+                    <%= post.user.last_name%>
+                    <% end %>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    <div id="star-rate-<%= post.id %>"></div>
+                    <script>
+                    $('#star-rate-<%= post.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: <%= post.rate %>,
+                      });
+                    </script>
+                    </td>
+                    <td><%= post.title %></td>
+                    <td><%= post.body %></td>
+                    <td> <% if current_user == post.user %>
+                      <%= link_to '口コミを編集',edit_book_post_path(book_id: @book, id: post), method: :get, class:'btn btn-warning' %></td>
+                      <td><%= link_to '口コミを削除',book_post_path(book_id: @book, id: post) , method: :delete, class:'btn btn-warning' %>
+                    <% end %></td>
+                  </tr>
+                </tbody>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

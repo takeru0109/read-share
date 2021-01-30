@@ -1,0 +1,12 @@
+<h3>book</h3>
+
+<% if current_user  %>
+  <div style='display: inline; float: right;'>
+    <%= link_to icon('fas', 'pen'), edit_book_path(book), id: :"button-edit-#{book.id}" %>
+    <%= link_to icon('fas', 'trash-alt'), book_path(book), id: :"button-delete-#{book.id}",method: :delete, data: { confirm: '削除してよろしいですか？' } %>
+  </div>
+<% else %>
+  <div style='display: inline; float: right;'>
+     <%= render 'boards/bookmark_area', book: book %>
+  </div>
+<% end %>

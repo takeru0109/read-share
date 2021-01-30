@@ -24,13 +24,13 @@ class UsersController < ApplicationController
     end
 
     def followers
-    @user  = User.find(params[:id])
-    @users = @user.followers
+      @user  = User.find(params[:id])
+      @users = @user.followers
     render 'show_follower'
     end
 
     def favorite
-    @favorite_manngas = current_user.favorite_manngas
+    @favorite_books = current_user.favorite_books
     end
 
     private
@@ -44,5 +44,5 @@ class UsersController < ApplicationController
     if @user != current_user
       redirect_to user_path(current_user.id)
     end
-  end
+   end
 end
