@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>漫画レビュー</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+  </head>
+
+
+    <header class="navbar navbar-fixed-top">
+        <div class="nav_top">
+            <div class="container">
+                <nav>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><%= link_to ' home',home_top_path %></li>
+                        <li><%= link_to ' about',home_about_path  %></li>
+                        <li><%= link_to ' manngas',root_path  %></li>
+                        <li><%= link_to ' sign_up', new_user_session_path%></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+    <body>
+        <div class="book_image"style="background-size: cover; background-position: center;">
+            <div class="welcom-text">
+                <h8>welcome
+                    <p> mannga_review</p>
+                </h8>
+            </div>
+        </div>
+
+
+        <div class="back"style="margin-top: 10px">
+            <div class="row">
+                <div class="col-xs-12"style=" text-align: center;">
+                  <h7>01</h7>
+                  <div class="top_x">好きな漫画を見つけてレビューを書いてみよう！</div>
+                </div>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="col-xs-12"style=" text-align: center;">
+              <h7>02</h7>
+              <div class="top_x">好きな漫画を見つけていいねをしよう！</div>
+            </div>
+        </div>
+
+        <div class="back">
+            <div class="row">
+                <div class="col-xs-12"style=" text-align: center;">
+                  <h7>03</h7>
+                  <div class="top_x">気になるレビューを見つけたらその人をフォローしてみよう！</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12"style=" text-align: center;">
+              <h7>04</h7>
+              <div class="top_x">何か追加して欲しい機能や漫画があれば問合せてみよう！</div>
+            </div>
+        </div>
+
+        <div class="back">
+            <div class="row">
+                <div class="col-xs-12"style=" text-align: center;">
+                  <h7>05</h7>
+                  <div class="top_x">気になる漫画があれば検索してみよう！</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="books_image"style="background-size: cover; background-position: center;">
+            <div class="books_font">
+                <div class="">On this site　Find your favorite book  <br>
+                    You can like and post!Let's find your favorite<br>
+                    and post!
+                </div>
+        　　</div>
+           <a href="/users/sign_up" class="pochitto_btn_blue">sing_up</a>
+        </div>
+　  </body>
+</html>
