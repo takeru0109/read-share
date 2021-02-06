@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+
+       <div class="font_z">search<i class="glyphicon glyphicon-search"style="color: blue;"></i></div>
+
+        <h3>user</h3>
+        <table>
+            <% @users.each do |user| %>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th> <%= link_to user_path(user) do %>
+                        <%= user.nick_name %>
+                        <% end %>
+                    </th>
+                </tr>
+            </thead>
+            <% end %>
+        </table>
+
+        <h3>book</h3>
+        <table>
+        <% @books.each do |book| %>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        <%= link_to book_path(book) do %>
+                        <%= book.name %>
+                        <% end %>
+                    </th>
+                </tr>
+            </thead>
+        <% end %>
+        </table>
+    </div>
+</div>

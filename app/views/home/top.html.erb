@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>漫画レビュー</title>
+    <title>書籍レビュー</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,7 +17,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><%= link_to ' home',home_top_path %></li>
                         <li><%= link_to ' about',home_about_path  %></li>
-                        <li><%= link_to ' manngas',root_path  %></li>
+                        <li><%= link_to ' books',root_path  %></li>
                         <li><%= link_to ' sign_up', new_user_session_path%></li>
                     </ul>
                 </nav>
@@ -30,7 +30,7 @@
         <div class="book_image"style="background-size: cover; background-position: center;">
             <div class="welcom-text">
                 <h8>welcome
-                    <p> mannga_review</p>
+                    <p> book_review</p>
                 </h8>
             </div>
         </div>
