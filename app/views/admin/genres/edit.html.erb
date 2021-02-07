@@ -1,0 +1,9 @@
+<%= form_for [:admin, @genre] do |f| %>
+      <%= f.label :name, "ジャンル" %>
+      <%= f.text_field :name, class: "form-control", style: "width: 250px;" %>
+      <%= f.radio_button :status, true, checked: true %>
+      <%= f.label :status, "有効", value: true, class: "radio-label label-size" %>
+      <%= f.radio_button :status, false %>
+      <%= f.label :status, "無効", value: false, class: "radio-label label-size" %>
+      <%= f.submit "変更を保存する", class: "left-space btn btn-primary" %>
+    <% end %>

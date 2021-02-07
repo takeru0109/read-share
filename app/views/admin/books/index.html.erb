@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+
+	    <div class="row">
+	      <h3>漫画</h3>
+	    </div>
+
+	    <div class="text-right">
+	      <%= link_to "書籍登録",new_admin_book_path, class: "btn-lg btn-primary" %>
+	    </div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>書籍ID</th>
+					<th>書籍名</th>
+					<th>著者</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @books.each do |book| %>
+					<tr>
+						<td><%= ¥book.id %></td>
+						<td><%= link_to book.name, admin_book_path(book) %></td>
+						<td><%= book.author %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+    </div>
+</div>

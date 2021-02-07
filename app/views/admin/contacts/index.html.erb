@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+  	    <h3>問合せ一覧</h3>
+  	    <table class="table">
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @contacts.each do |contact| %>
+					<tr>
+						<td><%= link_to admin_contact_path(contact) do %>
+		                    <%= contact.email %>
+                            <% end %>
+                        </td>
+						<td></td>
+						<td></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
