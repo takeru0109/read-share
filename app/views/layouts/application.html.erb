@@ -1,15 +1,86 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReadShare</title>
+    <title>漫画レビュー</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
   </head>
 
+
   <body>
+    <div style="text-align: left;">
+      <div class="nav_iamge"style="background-size: cover; background-position: center;">
+        <div class="container"style="height: 200px;">
+          <div class="font">
+           book_review
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar navbar-default" role="navigation">
+
+       <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+      </div>
+
+
+      <div class="navbar-collapse collapse"style="background-color: #f5e41770;">
+        <ul class="nav navbar-nav">
+
+            <!--if文でサインインとアウト時の表示を変更-->
+            <% if user_signed_in? %>
+            <li><%= link_to ' home', user_path(current_user)%></li>
+            <li><%= link_to ' book', books_path%></li>
+            <li><%= link_to ' contact', contacts_new_path%></li>
+            <li><%= link_to ' likes', favorite_users_path(current_user)%></li>
+            <li><%= link_to ' logout', destroy_user_session_path, method: :delete %></li>
+
+
+            <% else %>
+            <li><%= link_to ' top', home_top_path %></li>
+            <li><%= link_to ' about',home_about_path %></li>
+            <li><%= link_to ' sign_up', new_user_registration_path %></li>
+            <li><%= link_to ' log_in', new_user_session_path %></li>
+            <li><%= link_to ' book', books_path%></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="notice"style="text-align: center;"><%= notice %></p>
+    <% if flash[:success] %>
+      <div class="flash"style="text-align: center;">
+        <%= flash[:success] %>
+      </div>
+    <% end %>
+
+    <div style="margin-top: 50px; margin-bottom: 30px; text-align: center;　"><%= form_tag(searchs_search_path, :method => 'get') do %>
+        <%= text_field_tag :search %>
+        <span class="font_s">
+          <span class="h3">
+           <%= submit_tag 'Search' %>
+          </span>
+        </span>
+      <% end %>
+    </div>
+
     <%= yield %>
+
+    <footer>
+      <div class="footer-top"></div>
+      <div class="footer-bottom text-center">
+        <p><small>&copy;</small> book_review</p>
+      </div>
+    </footer>
   </body>
 </html>

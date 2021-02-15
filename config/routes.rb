@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-   get 'bookmarks/create'
+  get 'bookmarks/create'
   get 'bookmarks/destroy'
   get 'home/top'
   get 'home/about'
