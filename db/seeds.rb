@@ -7,9 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create!(email:"admin@test",password:"aaaaaa")
 
-kids = Genre.create(:name=>"カテゴリ")
- kids_education = kids.children.create(:name=>"教育")
- kids_mystery = kids.children.create(:name=>"ミステリー")
- kids_youth = kids.children.create(:name=>"青春")
- kids_science_fiction = kids.children.create(:name=>"SF")
+cook = Genre.create(:name=>"料理")
+ cook_japan = cook.children.create(:name=>"和食")
+ cook_europe = cook.children.create(:name=>"洋食")
+ cook_china = cook.children.create(:name=>"中華")
+ cook_other = cook.children.create(:name=>"その他")
  
+ fiction = Genre.create(:name=>"フィクション")
+ fiction_mystery = fiction.children.create(:name=>"ミステリー")
+ fiction_youth = fiction.children.create(:name=>"青春")
+ fiction_siencefiction = fiction.children.create(:name=>"SF")
