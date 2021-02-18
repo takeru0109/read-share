@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Admin.create!(email:"admin@test",password:"aaaaaa")
+
+kids = Genre.create(:name=>"カテゴリ")
+ kids_education = kids.children.create(:name=>"教育")
+ kids_mystery = kids.children.create(:name=>"ミステリー")
+ kids_youth = kids.children.create(:name=>"青春")
+ kids_science_fiction = kids.children.create(:name=>"SF")
+ 

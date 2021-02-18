@@ -7,7 +7,7 @@ class GenresController < ApplicationController
 		   @children = Genre.where(ancestry: @genre.id)#nillの場合@genre.idをancestryに持つgenreをとる
 		   @books = Book.where(genre_id: @children.ids)#そのジャンルを持つbooksをとる
 		else
-		   @books = @genre.manngas
+		   @books = @genre.books
 	    end
 	end
 end

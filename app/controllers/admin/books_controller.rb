@@ -4,7 +4,7 @@ class Admin::BooksController < ApplicationController
 
 
 	def new
-		@mbooks = Book.new
+		@book = Book.new
 	end
 
 	def index

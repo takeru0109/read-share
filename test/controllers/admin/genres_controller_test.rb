@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class Admin::GenresControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  before_action :authenticate_admin!
+
+	def index
+        @genre = Genre.new
+        @parents = Genre.all.order("id ASC")
+    end
 end
