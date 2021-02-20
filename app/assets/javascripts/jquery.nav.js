@@ -7,6 +7,8 @@
  */
 
 // Utility
+/*global jQuery*/
+/*global history*/
 if (typeof Object.create !== 'function') {
     Object.create = function(obj) {
         function F() {}
@@ -15,7 +17,7 @@ if (typeof Object.create !== 'function') {
     };
 }
 
-(function($, window, document, undefined) {
+(function($) {
     "use strict";
     
     var SinglePageNav = {

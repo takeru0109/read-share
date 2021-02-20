@@ -1,3 +1,4 @@
+/*global $*/
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(genre){
@@ -29,7 +30,7 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
-        $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
+        $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
@@ -40,7 +41,7 @@ $(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
-      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除するする
+      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
     }
   });
 });

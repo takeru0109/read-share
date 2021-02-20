@@ -4,7 +4,7 @@
       <% @parents.each do |parent| %>
       <div class="row" style="margin-left: 10px; padding-bottom: 5px;">
             <%= link_to genre_show_path(parent.id) do %>
-            <h3><%= parent.name %> >></h3>
+            <h3><%= parent.name %> </h3>
             <% end %>
           </div>
             <% parent.children.each do |child| %>

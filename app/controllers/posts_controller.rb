@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 		@book = Book.find(params[:book_id])
 		@post = Post.find(params[:id])
 	    if @post.update(post_params)
-	    redirect_to book_path(@book), notice: "レビューの編集が完了しました！"
+	   redirect_to book_path(@book), notice: "レビューの編集が完了しました！"
 	    else
 	   	flash[:error_messages] = @post.errors.full_messages
         render 'new'

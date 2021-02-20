@@ -6,7 +6,7 @@ class BooksController < ApplicationController
 
     def show
   	  @book = Book.find(params[:id])
-      @posts = @book.posts #その漫画に紐づくレビュー
+      @posts = @book.posts #その本に紐づくレビュー
       @parents = Genre.where(ancestry: nil)
       @average_book_post = Post.group(:book_id).average(:rate)
     end
