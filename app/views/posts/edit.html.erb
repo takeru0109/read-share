@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <%= form_for @post,url: book_post_path do |f| %>
+
+      <!-- タイトル -->
+      <div class="form-group row">
+        <%= f.label :title, 'タイトル ', class:'col-md-3 col-form-label' %>
+        <div class="col-md-9">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+
+      <!-- 評価 -->
+      <div class="form-group row" id="star">
+        <%= f.label :rate,'評価', class:'col-md-3 col-form-label' %>
+        <%= f.hidden_field :rate, id: :review_star %>
+      </div>
+
+      <!-- javascript -->
+      <script>
+       $('#star').raty({
+           size: 36,
+           starOff: '<%= asset_path('star-off.png') %>',
+           starOn : '<%= asset_path('star-on.png') %>',
+           starHalf: '<%= asset_path('star-half.png') %>',
+           scoreName: 'post[rate]',
+           half: true,
+        });
+      </script>
+
+
+      <!-- レビュー -->
+      <div class="form-group row">
+        <%= f.label :body, 'レビュー内容 ', class:'col-md-3 col-form-label' %>
+        <div class="col-md-9">
+          <%= f.text_area :body, class: "form-control", rows: "8",
+            placeholder:'感想を書こう!' %>
+        </div>
+      </div>
+
+      <!-- 確認ボタン -->
+      <div class="form-group row justify-content-end">
+        <div class="col-md-9">
+          <%= f.submit '編集する', class:"btn btn-warning" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

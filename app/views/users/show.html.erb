@@ -1,0 +1,93 @@
+<div class="container">
+	<div class="row">
+		<div class="font_z">
+		    user_porofil
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-4">
+			<table class="table">
+				<tr>
+					<th><h3>name</h3></th>
+					<td><%= @user.last_name%>　<%= @user.first_name %></td>
+				</tr>
+				<tr>
+					<th><h3>description</h3></th>
+					<td><%= @user.description %></td>
+				</tr>
+				<tr>
+					<th><h3>nick_name</h3></th>
+					<td><%= @user.nick_name %></td>
+				</tr>
+				<tr>
+					<th><h3>email</h3></th>
+					<td><%= @user.email %></td>
+				</tr>
+				<tr>
+					<th><h3>follow</h3></th>
+					<td><%= link_to following_user_path(@user) do %>
+						<%= @user.followings.count %>
+						<% end %>
+						</td>
+				</tr>
+				<tr>
+				    <th><h3>followers</h3></th>
+				    <td><%= link_to followers_user_path(@user) do %>
+				    	<%= @user.followers.count %>
+				    		<% end %>
+				    	</td>
+				</tr>
+				</table>
+			</table>
+			<% if user_signed_in? %>
+			  <%= render 'relationships/follow_button', user: @user, relotionship: @relationship %>
+			<% end %>
+			<% if current_user == @user %>
+			<%= link_to "編集する", edit_user_path, class: "btn btn-warning" %>
+			<%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-warning" %>
+			<% end %>
+	    </div>
+
+
+
+		<div class="col-xs-8">
+            <div class="font_z">rebyu</div>
+
+			    <table class="table"style="">
+					<thead>
+						<tr>
+							<th><h3>book_name</h3></th>
+							<th><h3>title</h3></th>
+							<th><h3>body</h3></th>
+							<th><h3>rate</h3></th>
+							<th colspan="3"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @posts.each do |post| %>
+							<tr>
+								<td><%= post.book.name %></td>
+								<td> <%= post.title %></td>
+								<td><%= post.body %></td>
+								<td><div id="star-rate-<%= post.id %>"></div>
+				                <script>
+				                $('#star-rate-<%= post.id %>').raty({
+				                  size: 36,
+				                  starOff:  '<%= asset_path('star-off.png') %>',
+				                  starOn : '<%= asset_path('star-on.png') %>',
+				                  starHalf: '<%= asset_path('star-half.png') %>',
+				                  half: true,
+				                  readOnly: true,
+				                  score: <%= post.rate %>,
+				                  });
+				                </script>
+									<% end %></td>
+								<td>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

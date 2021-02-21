@@ -1,0 +1,47 @@
+<%= form_for([:admin, book]) do |f| %>
+
+      <div class="col-xs-5">
+        <div class="field">
+          <%= f.label :image_url do%>
+          <%= attachment_image_tag(book, :image_url,id: "preview", size: '400x300', fallback: "no_image.jpg") %>
+          <% end %>
+          <%= f.attachment_field :image, class: "book_image" %>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="field">
+          <%= f.label :name, "書籍名", style: "width: 110px;" %>
+          <%= f.text_field :name, class: "form-control", style: "width: 300px;" %>
+        </div>
+
+        <div class="field label-top">
+          <%= f.label :description, "書籍説明", style: "width: 110px;" %>
+          <%= f.text_area :description, class: "form-control", rows: 7, style: "width: 300px;" %>
+        </div>
+
+       <div class="listing-form-box">
+        <div class="listing-product-detail__category">
+          <%= f.label 'ジャンル', class: 'listing-default__label' %>
+          <span class="listing-default--require"></span>
+          <div class="listing-select-wrapper">
+            <div class="listing-select-wrapper__box">
+              <%= f.select :genre_id, options_for_select(@genre_parent_array.map { |genre| [genre[:name], genre[:id]] }), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_genre'} %>
+              <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="field">
+          <%= f.label :author, "著者", style: "width: 110px;" %>
+          <%= f.text_field :author, class: "form-control", style: "width: 300px;" %>
+        </div>
+
+        <div class="actions text-right">
+          <%= f.submit "新規登録", class: "btn-lg btn-primary" %>
+        </div>
+      </div>
+
+    <% end %>

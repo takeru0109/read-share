@@ -1,0 +1,229 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+   @import "bootstrap-sprockets";
+   @import "bootstrap";
+
+
+
+
+.book_image{
+background-image: image-url("book.jpg");
+height: 800px;
+text-align:center;
+}
+
+.box13 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: black;
+    background: #f5e41770;
+    border-bottom: solid 6px #f5e41770;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+}
+.box13 p {
+    margin: 0;
+    padding: 0;
+}
+
+.welcom-text {
+  height: 200px;
+  padding-top: 200px;
+  color:#FFFF99
+}
+
+footer {
+	margin-top: 100px;
+}
+
+.footer-top {
+	height: 200px;
+	background-color: #f5e41770;
+}
+
+.footer-bottom p {
+	margin: 30px 0;
+}
+
+.pochitto_btn_blue {
+	display: inline-block;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background:#0C88CA;
+	border-bottom:4px solid #005691;
+	border-radius: 4px;
+	transition: .0s;
+	font-family: 'Amatic SC', cursive;
+	font-size:20px
+}
+.pochitto_btn_blue:hover {
+	 cursor: pointer;
+	 text-decoration: none;
+	 background:#005691;
+	 transform: translate3d(0, 4px, 0);
+	 transition: .0s;
+	 border-bottom: none;
+	 font-family: 'Amatic SC', cursive;
+	 font-size:20px
+}
+
+h8{
+font-family: 'Amatic SC', cursive;
+font-size:200px;
+}
+
+.books_image{
+background-image: image-url("books.jpg");
+margin-top: 20px;
+height: 400px;
+width: 100%;
+text-align:center;
+}
+
+.books_font{
+text-align: left;
+font-size:50px;
+font-family: 'Amatic SC', cursive;
+
+}
+
+h7{
+font-family: 'Amatic SC', cursive;
+font-size:100px;
+}
+
+
+
+h3{
+font-family: 'Amatic SC', cursive;
+}
+
+h9{
+font-family: 'Amatic SC', cursive;
+font-size:50px;
+}
+
+
+.font_s{
+font-family: 'Amatic SC', cursive;
+}
+
+
+.font{
+font-size:100px;
+font-family: 'Amatic SC', cursive;
+}
+
+.nav_iamge{
+ background-image: image-url("book.jpg");
+ width:100%;
+
+ }
+
+ .navbar navbar-default{
+ background-color: #f5e41770
+ }
+
+ .font_z{
+ font-size:50px;
+ font-family: 'Amatic SC', cursive;
+ }
+
+
+   i{
+font-size: 1.3em;
+color: inherit;
+
+}
+.footer{
+height: 50px;
+}
+
+.navbar .navbar-inner {
+padding: 0;
+}
+
+.navbar .nav {
+margin: 0;
+display: table;
+width: 100%;
+}
+
+.navbar .nav li {
+display: table-cell;
+float: none;
+font-family: 'Amatic SC', cursive;
+font-size:50px;
+}
+
+.navbar .nav li a {
+font-weight: bold;
+text-align: center;
+border-left: 1px solid rgba(255, 255, 255, .75);
+border-right: 1px solid rgba(0, 0, 0, .1);
+}
+
+.navbar .nav li:last-child a {
+border-right: 0;
+border-radius: 0 3px 3px 0;
+}
+
+.top_s{
+font-size:50px;
+color: #yellow;
+}
+
+.top_x{
+font-size:30px;
+}
+
+.back{
+background-color: #f5e41770;
+}
+
+
+.top_back{
+background-color: #f5e41770;
+font-family: 'Amatic SC', cursive;
+}
+
+.nav_top{
+color: #f5e41770;
+}
+
+.about_title{
+font-size:100px;
+font-family: 'Amatic SC', cursive;
+text-align: center
+}
+
+.about-s{
+font-size:20px;
+text-align: center
+}
+
+.about{
+font-size:40px;
+font-family: 'Amatic SC', cursive;
+text-align: center;
+margin-top: 50px;
+}
+
+
+
