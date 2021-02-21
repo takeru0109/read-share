@@ -20,28 +20,30 @@ $(function(){
     $('.listing-product-detail__category').append(childSelectHtml);
   }
   // 親カテゴリー選択後のイベント
-  $('#parent_genre').on('change', function(){
-    var parentGenre = document.getElementById('parent_genre').value; //選択された親カテゴリーの名前を取得
-    if (parentGenre != "---"){ //親カテゴリーが初期値でないことを確認
-      $.ajax({
-        url: '/admin/books/genre_children',
-        type: 'GET',
-        data: { parent_name: parentGenre },
-        dataType: 'json'
-      })
-      .done(function(children){
-        $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
-        var insertHTML = '';
-        children.forEach(function(child){
-          insertHTML += appendOption(child);
-        });
-        appendChidrenBox(insertHTML);
-      })
-      .fail(function(){
-        alert('カテゴリー取得に失敗しました');
-      })
-    }else{
-      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
-    }
+  $(document).on('turbolinks:load', function(){
+    $('#parent_genre').on('change', function(){
+      var parentGenre = document.getElementById('parent_genre').value; //選択された親カテゴリーの名前を取得
+      if (parentGenre != "---"){ //親カテゴリーが初期値でないことを確認
+        $.ajax({
+          url: '/admin/books/genre_children',
+          type: 'GET',
+          data: { parent_name: parentGenre },
+          dataType: 'json'
+        })
+        .done(function(children){
+          $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
+          var insertHTML = '';
+          children.forEach(function(child){
+            insertHTML += appendOption(child);
+          });
+          appendChidrenBox(insertHTML);
+        })
+        .fail(function(){
+          alert('カテゴリー取得に失敗しました');
+        })
+      }else{
+        $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+      }
+    });
   });
 });
