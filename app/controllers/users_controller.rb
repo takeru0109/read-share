@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     end
 
     def favorite
-    	@favorite_books = current_user.favorite_ids
+    	@favorite_books = current_user.favorite_books
     end
 
     private
