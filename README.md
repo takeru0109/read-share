@@ -1,24 +1,38 @@
-# README
+<アプリ名>
+read_share
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+サイト概要
+本の評価や口コミが見れる 登録すると本に口コミなどをする事ができる
 
-Things you may want to cover:
+サイトテーマ
+面白い本をすぐに探せる 評価の高い本がわかる
 
-* Ruby version
+テーマを選んだ理由
+本を読むのが好きで、ネットの口コミなどを見て読んだりする作品を決める事が多いので本のレビューサイトがあれば便利だと思ったため
 
-* System dependencies
+ターゲットユーザー
+老若男女問わず本が好きな人
 
-* Configuration
+主な利用シーン
+自分が興味のある本の口コミ評価を見れる　ジャンル別に本を探す時に使える
 
-* Database creation
+設計書
+機能一覧
+https://docs.google.com/spreadsheets/d/1yUkRyt4nQgo4_ymmO9bVyp-U-4Z_QaXurSiyCePgotc/edit#gid=0
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+管理者側
+本登録
+タグつけ登録
+本編集
+問合せ一覧
+問合せ詳細
+ユーザー側
+本に対してレビューを書ける（raty.jsを使用した評価）
+ユーザーページ編集
+フォローができる
+いいねができる
+いいねした一覧が見れる
+検索ができる(ユーザーと本)
+ジャンル検索(親と子供どちらでも)
+お問い合わせフォーム
+pagination機能
