@@ -69,5 +69,7 @@ Rails.application.configure do
    authentication:       'plain',
    enable_starttls_auto:  true
   }
+  unless Rails.env.production?
   config.web_console.whitelisted_ips = '126.234.173.115' #追記
+  end
 end
